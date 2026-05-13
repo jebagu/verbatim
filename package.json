@@ -1,0 +1,38 @@
+{
+  "name": "verbatim-landing",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 127.0.0.1 -p 3842",
+    "build": "next build",
+    "start": "next start -H 127.0.0.1 -p 3842",
+    "lint": "eslint"
+  },
+  "overrides": {
+    "postcss": "8.5.14"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.14.0",
+    "motion": "^12.38.0",
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "resend": "^6.12.3",
+    "tailwind-merge": "^3.6.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
+    "@types/node": "^25.7.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.6",
+    "postcss": "8.5.14",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3"
+  }
+}
