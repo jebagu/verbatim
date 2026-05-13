@@ -12,8 +12,8 @@ Production landing page for Verbatim, a local-first professional email writing w
 - Motion for React
 - Lucide React
 - Zod
-- Resend Contacts API
-- Vercel deployment target
+- GitHub Pages static deployment
+- Optional external waitlist endpoint
 
 ## Local Setup
 
@@ -37,21 +37,20 @@ Create `.env.local` from `.env.example`.
 ```bash
 RESEND_API_KEY=
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_WAITLIST_ENDPOINT=
 WAITLIST_SOURCE=verbatim_landing
 WAITLIST_NOTIFY_EMAIL=
 ```
 
-`RESEND_API_KEY` is server-only. Do not expose it with a `NEXT_PUBLIC_` prefix.
+`NEXT_PUBLIC_WAITLIST_ENDPOINT` is optional. If it is not set, the static page
+renders normally and reports that the live waitlist is not connected yet when a
+visitor submits the form.
 
 ## Waitlist Signup
 
-The waitlist form uses a server action in `src/app/actions.ts`, validates input with Zod, drops honeypot submissions, normalizes emails, and writes contacts with the Resend Contacts API. Duplicate contacts are treated as a successful signup.
-
-If `RESEND_API_KEY` is missing, the form returns:
-
-```text
-Waitlist is not configured yet.
-```
+The waitlist form is static-export safe. It validates obvious malformed email
+entries in the browser, drops honeypot submissions, and posts JSON to
+`NEXT_PUBLIC_WAITLIST_ENDPOINT` when one is configured.
 
 ## Commands
 
@@ -64,14 +63,19 @@ npm run build
 
 ## Deployment
 
-1. Push the repo to GitHub.
-2. Import the project into Vercel.
-3. Add environment variables:
-   - `RESEND_API_KEY`
-   - `NEXT_PUBLIC_SITE_URL`
-   - optional `WAITLIST_SOURCE`
-4. Deploy.
-5. Test the waitlist form in production.
+GitHub Pages is configured in `.github/workflows/deploy-pages.yml`.
+
+Published URL:
+
+```text
+https://jebagu.github.io/verbatim/
+```
+
+The workflow builds a static export with:
+
+```bash
+GITHUB_PAGES=true NEXT_PUBLIC_SITE_URL=https://jebagu.github.io/verbatim npm run build
+```
 
 ## Design Notes
 

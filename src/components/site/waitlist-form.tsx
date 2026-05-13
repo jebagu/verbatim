@@ -1,29 +1,90 @@
 "use client";
 
-import { useActionState } from "react";
+import { FormEvent, useState } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
 
-import { joinWaitlist, type WaitlistResult } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/cn";
 
+type WaitlistResult =
+  | { status: "idle" }
+  | { status: "success"; message: string }
+  | { status: "error"; message: string };
+
 const initialState: WaitlistResult = { status: "idle" };
+const waitlistEndpoint = process.env.NEXT_PUBLIC_WAITLIST_ENDPOINT;
 
 type WaitlistFormProps = {
   variant?: "hero" | "centered";
 };
 
 export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
-  const [state, formAction, isPending] = useActionState(
-    joinWaitlist,
-    initialState,
-  );
+  const [state, setState] = useState<WaitlistResult>(initialState);
+  const [isPending, setIsPending] = useState(false);
   const messageId = `${variant}-waitlist-message`;
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const company = String(formData.get("company") ?? "").trim();
+
+    if (company) {
+      setState({
+        status: "success",
+        message: "You are on the list. We will send an update when early access opens.",
+      });
+      form.reset();
+      return;
+    }
+
+    const email = String(formData.get("email") ?? "").trim();
+
+    if (!email || !email.includes("@")) {
+      setState({ status: "error", message: "Enter a valid email." });
+      return;
+    }
+
+    if (!waitlistEndpoint) {
+      setState({
+        status: "error",
+        message: "The live waitlist is not connected on this static preview yet.",
+      });
+      return;
+    }
+
+    setIsPending(true);
+
+    try {
+      const response = await fetch(waitlistEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, source: "verbatim_landing" }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Signup failed");
+      }
+
+      setState({
+        status: "success",
+        message: "You are on the list. We will send an update when early access opens.",
+      });
+      form.reset();
+    } catch {
+      setState({ status: "error", message: "Signup failed. Please try again." });
+    } finally {
+      setIsPending(false);
+    }
+  }
 
   return (
     <form
-      action={formAction}
+      onSubmit={handleSubmit}
       className={cn(
         "w-full",
         variant === "centered" && "mx-auto max-w-xl",

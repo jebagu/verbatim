@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+export const dynamic = "force-static";
 export const alt = "Verbatim | Write the email you meant to send";
 export const size = {
   width: 1200,

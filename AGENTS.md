@@ -12,6 +12,7 @@
 ## Verbatim
 
 - Permanent local URL: `http://127.0.0.1:3842/Verbatim/`
+- Published URL: `https://jebagu.github.io/verbatim/`
 - Dev command: `npm run dev`
 - Pinned port: `3842`
 - Local project path rewrite: `/Verbatim/` rewrites to the app root so production can still deploy at `/`.
