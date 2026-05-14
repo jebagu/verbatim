@@ -8,10 +8,10 @@ import { differentiatorCards } from "@/lib/constants";
 export function Differentiator() {
   return (
     <SectionShell
-      id="product"
+      id="differentiation"
       eyebrow="Product"
-      title='More than "can you proofread this?"'
-      description="Most AI writing tools start at the sentence level. Verbatim starts with intent, context, audience, structure, and the response you are trying to earn."
+      title="Beyond the sentence level."
+      description="Most AI writing tools can polish sentences. Verbatim helps with the harder part: context, intent, recipient psychology, structure, strategy, critique, and voice. The goal is not just a cleaner draft. The goal is a message that is better thought through before you send it."
     >
       <div className="grid gap-5 lg:grid-cols-3">
         {differentiatorCards.map((card) => {

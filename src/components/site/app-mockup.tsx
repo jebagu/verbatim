@@ -76,29 +76,29 @@ export function AppMockup() {
             <div className="flex-1 space-y-4 bg-gradient-to-br from-white to-slate-50 p-4 sm:p-6">
               <Message
                 author="Verbatim"
-                text="Let's build the right email. Start by adding the context I should know about this conversation."
+                text="Let's build the investor follow-up. Start with what happened, what changed, and the response you want."
               />
               <Message
                 author="You"
-                text="Launching a new analytics product. Reaching out to see if they would be open to a pilot. Budget conversation likely needed."
+                text="Met Sarah two weeks ago. She liked the market but thought we were early. Since then we signed two pilots and shipped the dashboard view she asked about. Want to ask for a real meeting next week without sounding like I'm chasing."
                 user
               />
               <Message
                 author="Verbatim"
-                text="Got it. Upload files, paste the thread, add notes, or record a voice dump to get started."
+                text="Good. The follow-up should lead with what changed, then make a specific ask. Add the thread or notes if you want tighter recipient fit."
               />
               <div className="grid gap-2">
-                <Button variant="secondary" size="sm">
-                  <Upload aria-hidden="true" />
-                  Upload files
-                </Button>
                 <Button variant="secondary" size="sm">
                   <ClipboardPaste aria-hidden="true" />
                   Paste thread
                 </Button>
                 <Button variant="secondary" size="sm">
-                  <Mic aria-hidden="true" />
-                  Record voice
+                  <FileText aria-hidden="true" />
+                  Add investor notes
+                </Button>
+                <Button variant="secondary" size="sm">
+                  <Upload aria-hidden="true" />
+                  Upload milestone
                 </Button>
               </div>
               <div className="rounded-[22px] border border-indigo-100 bg-indigo-50/60 p-4">
@@ -111,16 +111,21 @@ export function AppMockup() {
                   </Badge>
                 </div>
                 <div className="grid gap-3 sm:grid-cols-3">
-                  {["Direct ask", "Relationship-first", "Business-case lead"].map(
-                    (item) => (
+                  {["Traction-first", "Direct ask", "Thesis-first"].map((item) => (
                       <div
                         key={item}
                         className="rounded-2xl border border-white bg-white/80 p-3 text-xs font-medium text-slate-600 shadow-sm"
                       >
                         {item}
                       </div>
-                    ),
-                  )}
+                    ))}
+                </div>
+                <div className="mt-4 rounded-2xl border border-white bg-white/80 p-3 text-xs leading-5 text-slate-600 shadow-sm">
+                  <p className="font-semibold text-slate-950">Critique</p>
+                  <p className="mt-1">
+                    Move the ask into the first screen. Lead with what changed
+                    since the last conversation. Make the next step specific.
+                  </p>
                 </div>
               </div>
             </div>
@@ -131,16 +136,19 @@ export function AppMockup() {
                 Context
               </p>
               <div className="space-y-2">
-                {["Product one-pager.pdf", "Past email thread", "Recipient notes"].map(
-                  (item) => (
+                {[
+                  "Investor notes",
+                  "Past email thread",
+                  "Product milestone",
+                  "Pilot customer update",
+                ].map((item) => (
                     <div
                       key={item}
                       className="rounded-2xl border border-slate-200 bg-white px-3 py-2 text-xs font-medium text-slate-600"
                     >
                       {item}
                     </div>
-                  ),
-                )}
+                  ))}
               </div>
             </div>
             <div>
@@ -148,7 +156,7 @@ export function AppMockup() {
                 Personas
               </p>
               <div className="space-y-3">
-                {["Booking Agent", "Investor", "Busy Executive"].map((item) => (
+                {["Skeptical investor", "Busy partner", "Associate filter"].map((item) => (
                   <div
                     key={item}
                     className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm"

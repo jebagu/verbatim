@@ -9,8 +9,8 @@ export function PersonaDiagram() {
     <SectionShell
       id="personas"
       eyebrow="Personas"
-      title="See your email through their eyes"
-      description="Create recipient personas with theory-of-mind style feedback so you can spot buried asks, weak framing, and tone problems before you send."
+      title="See the message from the recipient's side."
+      description="Verbatim helps you anticipate how the reader will interpret the message: what they will skim, what they will resist, what feels vague, and what would make the next step easier to say yes to."
     >
       <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
         <Card className="p-5">
@@ -20,21 +20,21 @@ export function PersonaDiagram() {
             </span>
             <div>
               <h3 className="font-bold text-slate-950">Current draft email</h3>
-              <p className="text-sm text-slate-500">Subject: Partnership pilot opportunity</p>
+              <p className="text-sm text-slate-500">Subject: Quick update since dinner</p>
             </div>
           </div>
           <div className="rounded-[20px] border border-slate-200 bg-slate-50 p-4 font-mono text-sm leading-7 text-slate-700">
-            <p>Hi Taylor,</p>
+            <p>Hi Sarah,</p>
             <br />
             <p>
-              We have been building an analytics platform that helps teams
-              surface operational insights faster. I think there could be a lot
-              of value for your organization.
+              Just checking in after the fintech dinner. We have made some
+              progress since we talked, including two new pilots and the
+              dashboard view you asked about.
             </p>
             <br />
             <p>
-              Would you be open to a quick call to explore a potential pilot? I
-              would love to learn more about your priorities.
+              Would you be open to reconnecting sometime soon? I think the
+              timing may be better now.
             </p>
             <br />
             <p>Best,</p>

@@ -1,5 +1,6 @@
 import {
   Database,
+  FileText,
   GitBranch,
   History,
   MessagesSquare,
@@ -14,6 +15,7 @@ import { features } from "@/lib/constants";
 
 const icons = {
   Database,
+  FileText,
   MessagesSquare,
   Mic,
   GitBranch,
@@ -25,8 +27,9 @@ const icons = {
 export function FeatureGrid() {
   return (
     <SectionShell
+      id="features"
       title="Built for high-stakes professional writing"
-      description="The pieces you need when the email actually matters."
+      description="The pieces you need when the message actually matters."
       className="border-y border-slate-900/10 bg-white/36"
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

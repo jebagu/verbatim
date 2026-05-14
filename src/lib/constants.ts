@@ -1,5 +1,5 @@
 export const navLinks = [
-  { label: "Product", href: "#product" },
+  { label: "Product", href: "#differentiation" },
   { label: "Workflow", href: "#workflow" },
   { label: "Personas", href: "#personas" },
   { label: "Use Cases", href: "#use-cases" },
@@ -31,39 +31,43 @@ export const workflowSteps = [
     number: "1",
     title: "Load context",
     description:
-      "Workspace files, pasted threads, recipient notes, and project background.",
+      "Paste the thread, upload notes, or describe the situation.",
   },
   {
     number: "2",
-    title: "Voice brain dump",
+    title: "Dump the messy version",
     description:
-      "Say the messy version first. Capture goals, worries, and half-formed thoughts.",
+      "Say what you mean before worrying about structure.",
   },
   {
     number: "3",
-    title: "Build persona",
+    title: "Model the recipient",
     description:
-      "Model the person reading it so objections surface before you send.",
+      "Surface what they care about, what they may resist, and what would make the next step easier.",
   },
   {
     number: "4",
-    title: "Choose strategy",
-    description: "Compare A / B / C approaches before committing to a draft.",
+    title: "Compare strategies",
+    description:
+      "Try direct ask, relationship-first, business-case lead, risk reduction, or other approaches.",
   },
   {
     number: "5",
     title: "Build the structure",
-    description: "Decide the opening, ask, support, objections, and close.",
+    description:
+      "Decide the opening, framing, evidence, ask, objection handling, and close.",
   },
   {
     number: "6",
     title: "Draft and critique",
-    description: "Review clarity, tone, leverage, specificity, and risk.",
+    description:
+      "Review clarity, tone, specificity, leverage, risk, and recipient fit.",
   },
   {
     number: "7",
-    title: "Finalize",
-    description: "Keep human control over the final message.",
+    title: "Finalize in your voice",
+    description:
+      "Make it sharper without making it sound generic.",
   },
 ];
 
@@ -72,23 +76,25 @@ export const differentiatorCards = [
     title: "Typical chatbot",
     tone: "muted",
     bullets: [
-      "One-shot prompt",
-      "Weak project memory",
-      "Generic professional tone",
-      "No visible process",
-      "Hard to compare strategies",
+      "Starts from a prompt",
+      "Produces a draft quickly",
+      "Leaves strategy mostly to you",
+      "Often defaults to polished-generic language",
+      "Makes it hard to compare approaches",
+      "Rarely shows its reasoning as a writing process",
     ],
   },
   {
     title: "Verbatim",
     tone: "primary",
     bullets: [
-      "Staged writing workflow",
-      "Workspace and thread context",
-      "Multiple strategic options",
-      "Recipient simulation",
-      "Voice-preserving rewrites",
-      "Critique before final polish",
+      "Starts from context and intent",
+      "Models the recipient",
+      "Surfaces strategic options",
+      "Structures the message before drafting",
+      "Preserves your voice",
+      "Critiques clarity, tone, leverage, specificity, and risk",
+      "Keeps you in control of the final message",
     ],
   },
   {
@@ -139,70 +145,81 @@ export const features = [
   {
     title: "Persona creation",
     description:
-      "Paste a job title, LinkedIn profile, or everything you know about the recipient, then anticipate concerns from their point of view.",
+      "Paste a job title, profile, or everything you know about the recipient, then anticipate concerns from their point of view.",
     icon: "Users",
+  },
+  {
+    title: "Style-aware drafting",
+    description:
+      "Bring examples, prior drafts, notes, or voice dumps so Verbatim can write closer to your natural style without flattening the message into generic prose.",
+    icon: "FileText",
   },
 ];
 
 export const useCases = [
   {
     title: "Founders",
-    description: "Raise, recruit, sell, and build trust with sharper messages.",
+    description:
+      "Investor follow-ups, customer pilots, recruiting notes, board updates, and delicate asks where the first version is rarely the best version.",
     icon: "Rocket",
   },
   {
     title: "Executives",
-    description: "Communicate strategy, decisions, and tradeoffs with precision.",
+    description:
+      "Align teams around hard decisions, explain tradeoffs clearly, and send messages that reduce confusion instead of creating another meeting.",
     icon: "Briefcase",
   },
   {
     title: "Dealmakers",
     description:
-      "Move sensitive conversations forward without losing leverage.",
+      "Negotiate terms, reset expectations, follow up after complex conversations, and keep momentum without sounding needy.",
     icon: "Handshake",
   },
   {
     title: "Sales",
-    description: "Write outreach and follow-ups that feel specific, not canned.",
+    description:
+      "Turn call notes, objections, and buying committee context into follow-ups that feel specific, useful, and worth answering.",
     icon: "Target",
   },
   {
     title: "Creators",
-    description: "Pitch partners, sponsors, booking agents, and collaborators.",
+    description:
+      "Pitch sponsors, partners, agents, editors, and collaborators with a clear ask and a reason to care.",
     icon: "Lightbulb",
   },
   {
     title: "Operators",
-    description: "Align teams, unblock decisions, and drive outcomes.",
+    description:
+      "Ask for decisions, clarify accountability, summarize tradeoffs, and move stalled projects forward.",
     icon: "Cog",
   },
 ];
 
 export const personas = [
   {
-    title: "Booking Agent",
-    initials: "BA",
+    title: "Skeptical investor",
+    initials: "SI",
     color: "bg-amber-100 text-amber-700",
-    traits: ["Time-poor", "Filters for legitimacy", "Wants clear ask"],
-    feedback: "Your ask is still buried.",
-    support: "Make the request impossible to miss in the first screen.",
+    traits: ["Looks for proof", "Cares about downside", "Rejects vague updates"],
+    feedback: "This sounds like a generic follow-up.",
+    support: "Lead with what changed since the last conversation.",
   },
   {
-    title: "Investor",
-    initials: "IV",
+    title: "Busy partner",
+    initials: "BP",
     color: "bg-indigo-100 text-indigo-700",
-    traits: ["Looks for signal", "Cares about downside", "Hates fluff"],
-    feedback: "This sounds too needy.",
+    traits: ["Skims first", "Needs signal fast", "Wants a specific next step"],
+    feedback: "The ask does not appear until the second paragraph.",
     support:
-      "Lead with traction, timing, and why this conversation matters now.",
+      "Move it into the first screen and make the meeting length specific.",
   },
   {
-    title: "Busy Executive",
-    initials: "BE",
+    title: "Associate filter",
+    initials: "AF",
     color: "bg-teal-100 text-teal-700",
-    traits: ["Skims first", "Responds to structure", "Needs confidence"],
-    feedback: "Lead with the business case.",
+    traits: ["Summarizes quickly", "Needs context", "Flags unclear thesis"],
+    feedback: "You are assuming they remember the product.",
     support:
-      "Use a clear headline, shorter paragraphs, and a concrete next step.",
+      "Add one short reminder of the thesis before the traction detail.",
   },
 ];

@@ -18,7 +18,7 @@ export function WorkflowDiagram() {
       id="workflow"
       eyebrow="Workflow"
       title="A writing laboratory, not a prompt box"
-      description="Verbatim separates the hard parts of professional writing so you can make better decisions before the final draft appears."
+      description="Verbatim separates the hard parts of professional communication so you can make better decisions before the final draft appears."
       className="border-y border-slate-900/10 bg-white/38"
     >
       <div className="relative rounded-[32px] border border-slate-200 bg-white/64 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur lg:p-8">
@@ -49,7 +49,7 @@ export function WorkflowDiagram() {
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           <FloatingCard title="Workspace context" icon={<NotebookTabs />}>
-            {["Company brief.pdf", "Q2 roadmap.pptx", "Past thread", "Recipient notes"].map(
+            {["Investor notes", "Past thread", "Product milestone", "Pilot update"].map(
               (item) => (
                 <div
                   key={item}
@@ -73,7 +73,7 @@ export function WorkflowDiagram() {
             </div>
           </FloatingCard>
           <FloatingCard title="Build persona" icon={<Users />}>
-            {["Job title", "LinkedIn profile", "Known concerns"].map((item) => (
+            {["Skeptical investor", "Busy partner", "Associate filter"].map((item) => (
               <div
                 key={item}
                 className="rounded-xl bg-teal-50 px-3 py-2 text-xs font-semibold text-teal-700"
@@ -83,7 +83,7 @@ export function WorkflowDiagram() {
             ))}
           </FloatingCard>
           <FloatingCard title="Strategic options" icon={<Sparkles />}>
-            {["Approach A: Direct ask", "Approach B: Relationship-first", "Approach C: Business-case lead"].map(
+            {["Option A: Traction-first", "Option B: Direct ask", "Option C: Thesis-first"].map(
               (item) => (
                 <div
                   key={item}

@@ -25,27 +25,32 @@ export function FinalCta() {
               Try Verbatim for one high-stakes week.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-              Start with a focused trial, then keep the full professional
-              writing workflow for the messages that matter.
+              Use the full workflow on the messages that actually matter:
+              investor follow-ups, client notes, partnership asks,
+              negotiations, sensitive internal communication, and complex
+              replies.
             </p>
           </div>
           <div className="rounded-[28px] border border-slate-200 bg-white/86 p-5 shadow-[0_18px_54px_rgba(15,23,42,0.1)]">
             <div className="border-b border-slate-200 pb-5">
               <p className="text-sm font-semibold text-slate-500">One-week trial</p>
-              <div className="mt-3 flex items-end gap-3">
+              <div className="mt-3 flex flex-wrap items-end gap-3">
                 <span className="font-display text-6xl font-semibold leading-none text-slate-950">
                   $20
                 </span>
-                <span className="pb-2 text-sm font-semibold text-slate-500">
-                  then $100/month
-                </span>
+                <div className="pb-1 text-sm font-semibold leading-6 text-slate-500">
+                  <p>for one week</p>
+                  <p>Then $100/month</p>
+                </div>
               </div>
             </div>
             <ul className="my-5 space-y-3">
               {[
-                "Guided context, brain dump, strategy, and draft workflow",
-                "Recipient personas with theory-of-mind style feedback",
-                "Critique loops, options, and version history",
+                "Guided workflow for context, intent, strategy, draft, critique, and finalization",
+                "Recipient modeling and strategic options before drafting",
+                "Voice-aware rewriting using your notes, examples, and prior drafts",
+                "Thread-aware drafting for complex email chains",
+                "Version history for alternate approaches and final candidates",
               ].map((item) => (
                 <li key={item} className="flex gap-3 text-sm leading-6 text-slate-600">
                   <CheckCircle2
@@ -64,7 +69,7 @@ export function FinalCta() {
                 idleMessage="Enter the email you want to use for checkout access."
                 successMessage="Got it. We will send checkout access to this email."
                 unavailableMessage="Checkout email capture is not connected on this static preview yet."
-                source="verbatim_pricing_buy"
+                source="verbatim_pricing_trial"
               />
             ) : (
               <Button
@@ -73,10 +78,13 @@ export function FinalCta() {
                 className="w-full"
                 onClick={() => setShowEmailForm(true)}
               >
-                Buy
+                Start the one-week trial
                 <ArrowRight aria-hidden="true" />
               </Button>
             )}
+            <p className="mt-4 text-center text-sm font-medium text-slate-500">
+              Built for important messages, not inbox busywork.
+            </p>
           </div>
         </div>
       </div>

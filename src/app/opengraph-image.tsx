@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const dynamic = "force-static";
-export const alt = "Verbatim | Write extraordinary emails";
+export const alt = "Verbatim | For messages too important to hand to a chatbot";
 export const size = {
   width: 1200,
   height: 630,
@@ -74,7 +74,7 @@ export default function Image() {
                   letterSpacing: 0,
                 }}
               >
-                Write extraordinary emails that get results.
+                For messages too important to hand to a chatbot.
               </div>
               <div
                 style={{
@@ -84,7 +84,7 @@ export default function Image() {
                   marginTop: 28,
                 }}
               >
-                Guided context, personas, critique loops, and pricing from $20.
+                Guided context, recipient fit, strategy, critique, and voice.
               </div>
             </div>
             <div
@@ -99,7 +99,7 @@ export default function Image() {
                 boxShadow: "0 24px 80px rgba(15, 23, 42, 0.12)",
               }}
             >
-              {["Context", "Voice dump", "Build persona", "Critique"].map((item) => (
+              {["Context", "Strategy", "Recipient fit", "Critique"].map((item) => (
                 <div
                   key={item}
                   style={{
