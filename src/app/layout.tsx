@@ -5,13 +5,13 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-domain.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Verbatim | Write the email you meant to send",
+  title: "Verbatim | Write extraordinary emails",
   description:
-    "Verbatim is a local-first professional email writing workflow that turns context, voice notes, and recipient personas into sharper messages.",
+    "Verbatim turns messy thoughts, voice notes, email threads, and workspace context into extraordinary professional messages through a guided workflow.",
   openGraph: {
-    title: "Verbatim | Write the email you meant to send",
+    title: "Verbatim | Write extraordinary emails",
     description:
-      "A writing laboratory for high-stakes professional email, with workflows, critique loops, and recipient personas.",
+      "A guided workflow for professional email, with context intake, critique loops, and recipient personas.",
     url: siteUrl,
     siteName: "Verbatim",
     type: "website",
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Verbatim | Write the email you meant to send",
+    title: "Verbatim | Write extraordinary emails",
     description:
-      "More than proofreading. Verbatim helps you structure, draft, critique, and finalize professional emails.",
+      "Verbatim starts with intent, context, audience, structure, and the response you are trying to earn.",
     images: ["/opengraph-image"],
   },
 };

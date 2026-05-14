@@ -17,7 +17,7 @@ const sidebarIcons = [Home, Mail, FileText, FileText, Users, ClipboardPaste, Set
 
 export function AppMockup() {
   return (
-    <div className="glass-panel relative rounded-[32px] p-3">
+    <div className="glass-panel relative w-full min-w-0 max-w-[calc(100vw-2.5rem)] overflow-hidden rounded-[32px] p-3 sm:max-w-full">
       <div className="overflow-hidden rounded-[26px] border border-slate-200/80 bg-white">
         <div className="flex items-center justify-between border-b border-slate-200 bg-slate-50/80 px-4 py-3">
           <div className="flex items-center gap-2">
@@ -25,7 +25,7 @@ export function AppMockup() {
             <span className="size-3 rounded-full bg-[#fbbf24]" />
             <span className="size-3 rounded-full bg-[#34d399]" />
           </div>
-          <div className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-500">
+          <div className="hidden rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-500 sm:block">
             Verbatim workspace
           </div>
         </div>
@@ -87,7 +87,7 @@ export function AppMockup() {
                 author="Verbatim"
                 text="Got it. Upload files, paste the thread, add notes, or record a voice dump to get started."
               />
-              <div className="grid gap-3 sm:grid-cols-3">
+              <div className="grid gap-2">
                 <Button variant="secondary" size="sm">
                   <Upload aria-hidden="true" />
                   Upload files

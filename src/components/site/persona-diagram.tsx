@@ -12,7 +12,7 @@ export function PersonaDiagram() {
       title="See your email through their eyes"
       description="Create recipient personas with theory-of-mind style feedback so you can spot buried asks, weak framing, and tone problems before you send."
     >
-      <div className="grid gap-5 lg:grid-cols-[1.05fr_0.9fr_1fr] lg:items-stretch">
+      <div className="grid gap-5 lg:grid-cols-[0.92fr_1.08fr] lg:items-stretch">
         <Card className="p-5">
           <div className="mb-4 flex items-center gap-2">
             <span className="flex size-10 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-600">
@@ -41,19 +41,13 @@ export function PersonaDiagram() {
             <p>Alex</p>
           </div>
         </Card>
-        <div className="flex items-center justify-center">
-          <ArrowRight aria-hidden="true" className="hidden size-8 text-indigo-300 lg:block" />
-          <div className="grid w-full gap-3 lg:hidden">
-            <div className="mx-auto h-8 w-px bg-indigo-200" />
-          </div>
-        </div>
-        <div className="grid gap-4 lg:col-span-2 lg:grid-cols-2">
-          <div className="space-y-4">
-            {personas.map((persona) => (
-              <div
-                key={persona.title}
-                className="rounded-[24px] border border-slate-200 bg-white/80 p-4 shadow-sm"
-              >
+        <div className="space-y-4">
+          {personas.map((persona) => (
+            <div
+              key={persona.title}
+              className="grid gap-4 rounded-[24px] border border-slate-200 bg-white/82 p-4 shadow-sm md:grid-cols-[minmax(190px,0.86fr)_1fr] md:items-stretch"
+            >
+              <div className="rounded-[20px] bg-slate-50 p-4">
                 <div className="mb-3 flex items-center gap-3">
                   <span
                     className={`flex size-11 items-center justify-center rounded-full text-sm font-bold ${persona.color}`}
@@ -63,7 +57,7 @@ export function PersonaDiagram() {
                   <div>
                     <h3 className="font-bold text-slate-950">{persona.title}</h3>
                     <p className="text-xs font-medium text-slate-500">
-                      Recipient simulation
+                      Recipient persona
                     </p>
                   </div>
                 </div>
@@ -78,14 +72,11 @@ export function PersonaDiagram() {
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-          <div className="space-y-4">
-            {personas.map((persona) => (
-              <div
-                key={persona.feedback}
-                className="rounded-[24px] border border-amber-200 bg-amber-50/75 p-4 shadow-sm"
-              >
+              <div className="relative rounded-[20px] border border-amber-200 bg-amber-50/75 p-4">
+                <ArrowRight
+                  aria-hidden="true"
+                  className="absolute -left-6 top-1/2 hidden size-5 -translate-y-1/2 text-indigo-300 md:block"
+                />
                 <p className="text-sm font-bold text-amber-900">
                   {persona.feedback}
                 </p>
@@ -93,8 +84,8 @@ export function PersonaDiagram() {
                   {persona.support}
                 </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </SectionShell>

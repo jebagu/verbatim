@@ -17,12 +17,26 @@ const waitlistEndpoint = process.env.NEXT_PUBLIC_WAITLIST_ENDPOINT;
 
 type WaitlistFormProps = {
   variant?: "hero" | "centered";
+  buttonLabel?: string;
+  pendingLabel?: string;
+  idleMessage?: string;
+  successMessage?: string;
+  unavailableMessage?: string;
+  source?: string;
 };
 
-export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
+export function WaitlistForm({
+  variant = "hero",
+  buttonLabel = "Submit email",
+  pendingLabel = "Saving",
+  idleMessage = "Enter your email to continue.",
+  successMessage = "Got it. We will follow up with next steps.",
+  unavailableMessage = "Email capture is not connected on this static preview yet.",
+  source = "verbatim_landing",
+}: WaitlistFormProps) {
   const [state, setState] = useState<WaitlistResult>(initialState);
   const [isPending, setIsPending] = useState(false);
-  const messageId = `${variant}-waitlist-message`;
+  const messageId = `${variant}-email-capture-message`;
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -34,7 +48,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
     if (company) {
       setState({
         status: "success",
-        message: "You are on the list. We will send an update when early access opens.",
+        message: successMessage,
       });
       form.reset();
       return;
@@ -50,7 +64,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
     if (!waitlistEndpoint) {
       setState({
         status: "error",
-        message: "The live waitlist is not connected on this static preview yet.",
+        message: unavailableMessage,
       });
       return;
     }
@@ -63,7 +77,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, source: "verbatim_landing" }),
+        body: JSON.stringify({ email, source }),
       });
 
       if (!response.ok) {
@@ -72,7 +86,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
 
       setState({
         status: "success",
-        message: "You are on the list. We will send an update when early access opens.",
+        message: successMessage,
       });
       form.reset();
     } catch {
@@ -125,11 +139,11 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
           {isPending ? (
             <>
               <Loader2 className="animate-spin" aria-hidden="true" />
-              Joining
+              {pendingLabel}
             </>
           ) : (
             <>
-              Join the waitlist
+              {buttonLabel}
               <ArrowRight aria-hidden="true" />
             </>
           )}
@@ -147,7 +161,7 @@ export function WaitlistForm({ variant = "hero" }: WaitlistFormProps) {
         )}
       >
         {state.status === "idle"
-          ? "No spam. Occasional product updates only."
+          ? idleMessage
           : state.message}
       </p>
     </form>

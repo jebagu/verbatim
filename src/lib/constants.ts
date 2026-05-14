@@ -3,14 +3,7 @@ export const navLinks = [
   { label: "Workflow", href: "#workflow" },
   { label: "Personas", href: "#personas" },
   { label: "Use Cases", href: "#use-cases" },
-  { label: "Waitlist", href: "#waitlist" },
-];
-
-export const trustChips = [
-  "Workspace context",
-  "Voice-to-draft",
-  "Recipient personas",
-  "Human approval",
+  { label: "Pricing", href: "#pricing" },
 ];
 
 export const sidebarItems = [
@@ -26,6 +19,7 @@ export const sidebarItems = [
 export const workflowStepper = [
   "Context",
   "Voice dump",
+  "Build persona",
   "Options",
   "Draft",
   "Critique",
@@ -47,21 +41,27 @@ export const workflowSteps = [
   },
   {
     number: "3",
+    title: "Build persona",
+    description:
+      "Model the person reading it so objections surface before you send.",
+  },
+  {
+    number: "4",
     title: "Choose strategy",
     description: "Compare A / B / C approaches before committing to a draft.",
   },
   {
-    number: "4",
+    number: "5",
     title: "Build the structure",
     description: "Decide the opening, ask, support, objections, and close.",
   },
   {
-    number: "5",
+    number: "6",
     title: "Draft and critique",
     description: "Review clarity, tone, leverage, specificity, and risk.",
   },
   {
-    number: "6",
+    number: "7",
     title: "Finalize",
     description: "Keep human control over the final message.",
   },
@@ -106,9 +106,9 @@ export const differentiatorCards = [
 
 export const features = [
   {
-    title: "Workspace memory",
+    title: "Risk-based memory",
     description:
-      "Company background, active projects, goals, and writing preferences.",
+      "Remember goals, context, sensitivities, and avoidable mistakes.",
     icon: "Database",
   },
   {
@@ -137,14 +137,10 @@ export const features = [
     icon: "History",
   },
   {
-    title: "Local-first design",
-    description: "Your files and workflow live on your machine.",
-    icon: "Laptop",
-  },
-  {
-    title: "Human approval",
-    description: "You stay in control of every final send.",
-    icon: "UserCheck",
+    title: "Persona creation",
+    description:
+      "Paste a job title, LinkedIn profile, or everything you know about the recipient, then anticipate concerns from their point of view.",
+    icon: "Users",
   },
 ];
 

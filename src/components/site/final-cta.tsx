@@ -1,30 +1,82 @@
-import { ShieldCheck } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { WaitlistForm } from "@/components/site/waitlist-form";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 export function FinalCta() {
+  const [showEmailForm, setShowEmailForm] = useState(false);
+
   return (
-    <section id="waitlist" className="relative px-5 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-5xl overflow-hidden rounded-[32px] border border-indigo-100 bg-[linear-gradient(135deg,rgba(255,255,255,0.86),rgba(238,246,255,0.88))] p-8 text-center shadow-[0_28px_90px_rgba(79,70,229,0.15)] backdrop-blur lg:p-14">
+    <section id="pricing" className="relative px-5 py-20 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl overflow-hidden rounded-[32px] border border-indigo-100 bg-[linear-gradient(135deg,rgba(255,255,255,0.9),rgba(238,246,255,0.9))] p-8 shadow-[0_28px_90px_rgba(79,70,229,0.15)] backdrop-blur lg:p-14">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(79,70,229,0.12),transparent_44%)]"
         />
-        <div className="relative">
-          <Badge className="mb-5 border-teal-100 bg-white text-teal-700">
-            <ShieldCheck aria-hidden="true" />
-            Built around human approval
-          </Badge>
-          <h2 className="font-display text-4xl font-semibold tracking-normal text-slate-950 sm:text-5xl">
-            Join the waitlist
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-            Be first to try Verbatim and help shape the future of professional
-            writing.
-          </p>
-          <div className="mt-8">
-            <WaitlistForm variant="centered" />
+        <div className="relative grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-indigo-600">
+              Pricing
+            </p>
+            <h2 className="font-display mt-4 text-4xl font-semibold tracking-normal text-slate-950 sm:text-5xl">
+              Try Verbatim for one high-stakes week.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+              Start with a focused trial, then keep the full professional
+              writing workflow for the messages that matter.
+            </p>
+          </div>
+          <div className="rounded-[28px] border border-slate-200 bg-white/86 p-5 shadow-[0_18px_54px_rgba(15,23,42,0.1)]">
+            <div className="border-b border-slate-200 pb-5">
+              <p className="text-sm font-semibold text-slate-500">One-week trial</p>
+              <div className="mt-3 flex items-end gap-3">
+                <span className="font-display text-6xl font-semibold leading-none text-slate-950">
+                  $20
+                </span>
+                <span className="pb-2 text-sm font-semibold text-slate-500">
+                  then $100/month
+                </span>
+              </div>
+            </div>
+            <ul className="my-5 space-y-3">
+              {[
+                "Guided context, brain dump, strategy, and draft workflow",
+                "Recipient personas with theory-of-mind style feedback",
+                "Critique loops, options, and version history",
+              ].map((item) => (
+                <li key={item} className="flex gap-3 text-sm leading-6 text-slate-600">
+                  <CheckCircle2
+                    aria-hidden="true"
+                    className="mt-0.5 size-5 shrink-0 text-teal-600"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            {showEmailForm ? (
+              <WaitlistForm
+                variant="centered"
+                buttonLabel="Submit email"
+                pendingLabel="Saving"
+                idleMessage="Enter the email you want to use for checkout access."
+                successMessage="Got it. We will send checkout access to this email."
+                unavailableMessage="Checkout email capture is not connected on this static preview yet."
+                source="verbatim_pricing_buy"
+              />
+            ) : (
+              <Button
+                type="button"
+                size="lg"
+                className="w-full"
+                onClick={() => setShowEmailForm(true)}
+              >
+                Buy
+                <ArrowRight aria-hidden="true" />
+              </Button>
+            )}
           </div>
         </div>
       </div>

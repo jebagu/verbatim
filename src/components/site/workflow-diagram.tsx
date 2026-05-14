@@ -1,4 +1,11 @@
-import { ArrowRight, CircleDot, Mic, NotebookTabs, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  CircleDot,
+  Mic,
+  NotebookTabs,
+  Sparkles,
+  Users,
+} from "lucide-react";
 
 import { SectionShell } from "@/components/site/section-shell";
 import { workflowSteps } from "@/lib/constants";
@@ -15,7 +22,7 @@ export function WorkflowDiagram() {
       className="border-y border-slate-900/10 bg-white/38"
     >
       <div className="relative rounded-[32px] border border-slate-200 bg-white/64 p-5 shadow-[0_24px_80px_rgba(15,23,42,0.08)] backdrop-blur lg:p-8">
-        <div className="grid gap-4 lg:grid-cols-6">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
           {workflowSteps.map((step, index) => (
             <div key={step.title} className="relative">
               <div className="h-full rounded-[24px] border border-slate-200 bg-white p-4 shadow-sm">
@@ -26,7 +33,7 @@ export function WorkflowDiagram() {
                   {index < workflowSteps.length - 1 ? (
                     <ArrowRight
                       aria-hidden="true"
-                      className="hidden size-5 text-indigo-300 lg:block"
+                      className="hidden size-5 text-indigo-300 xl:block"
                     />
                   ) : (
                     <Sparkles aria-hidden="true" className="size-5 text-amber-500" />
@@ -40,7 +47,7 @@ export function WorkflowDiagram() {
             </div>
           ))}
         </div>
-        <div className="mt-6 grid gap-4 lg:grid-cols-4">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           <FloatingCard title="Workspace context" icon={<NotebookTabs />}>
             {["Company brief.pdf", "Q2 roadmap.pptx", "Past thread", "Recipient notes"].map(
               (item) => (
@@ -64,6 +71,16 @@ export function WorkflowDiagram() {
                 />
               ))}
             </div>
+          </FloatingCard>
+          <FloatingCard title="Build persona" icon={<Users />}>
+            {["Job title", "LinkedIn profile", "Known concerns"].map((item) => (
+              <div
+                key={item}
+                className="rounded-xl bg-teal-50 px-3 py-2 text-xs font-semibold text-teal-700"
+              >
+                {item}
+              </div>
+            ))}
           </FloatingCard>
           <FloatingCard title="Strategic options" icon={<Sparkles />}>
             {["Approach A: Direct ask", "Approach B: Relationship-first", "Approach C: Business-case lead"].map(

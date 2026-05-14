@@ -2,11 +2,10 @@ import {
   Database,
   GitBranch,
   History,
-  Laptop,
   MessagesSquare,
   Mic,
   SearchCheck,
-  UserCheck,
+  Users,
 } from "lucide-react";
 
 import { AnimatedCard } from "@/components/site/animated-card";
@@ -20,8 +19,7 @@ const icons = {
   GitBranch,
   SearchCheck,
   History,
-  Laptop,
-  UserCheck,
+  Users,
 };
 
 export function FeatureGrid() {
